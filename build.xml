@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project name="Resta_Um" default="default" basedir=".">
+    <description>Jogo Resta Um</description>
+    
+    <!-- Task para compilar --> 
+    <target name="compile">
+        <mkdir dir="bin"/>
+        <javac srcdir="src" destdir="bin"/>
+
+        <copy todir="bin/restaum/resources/" >  
+            <fileset dir="src/restaum/resources/" includes="**"/>  
+        </copy>
+        <copy todir="bin/restaum/storage/" >  
+            <fileset dir="src/restaum/storage/" includes="**"/>  
+        </copy>
+    </target>
+
+    <!-- Task para rodar --> 
+    <target name="default">
+        <java classname="restaum.Main" fork="true">
+            <arg value="-h"/>
+            <classpath>
+               <pathelement path="bin/"/>
+            </classpath>
+        </java>
+    </target>
+</project>
